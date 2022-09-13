@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>google meet</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
+  <body>
+    <div class="google-meet__root">
+      <section class="google-meet__main">
+        <div class="google-meet__my-block">
+          <img class="google-meet__my-icon" src="images/my-icon.jpg"></img>
+          <img id="my-mute-icon" src="images/toolbar_no-audio.png"></img>
+          <div class="google-meet__tool-bar">
+            <img class="google-meet__tool-bar-icon" src="images/unpin.png"></img>
+            <img class="google-meet__tool-bar-icon" src="images/grid.png"></img>
+            <img class="google-meet__tool-bar-icon" src="images/fullscreen.png"></img>
+            <div id="rectangle"></div>
+            <div id="cycle1"></div>
+            <div id="cycle2"></div>
+          </div>
+          <div class="google-meet__my-name">
+            <img id="my-pin" src="images/pin.png"></img>
+            <p id="me">你</p>
+          </div>
+        </div>
+        
+        <div class="google-meet__guest-list">
+          <div class="google-meet__space">
+          </div>
+          <div class="google-meet__guest-block">
+            <p class="google-meet__guest-name">guest1</p>
+            <img id="guest-1-icon" class="google-meet__guest-icon" src="images/guest-1-icon.jpg"></img>
+            <div id="mute-1-icon" class="google-meet__mute-icon">
+              <img class="google-meet__mute-inner" src="images/toolbar_no-audio.png"></img>
+            </div>
+          </div>
+          <div class="google-meet__guest-block">
+            <p class="google-meet__guest-name">guest2</p>
+            <img id="guest-2-icon" class="google-meet__guest-icon" src="images/guest-2-icon.jpg"></img>
+            <div id="mute-2-icon" class="google-meet__mute-icon">
+              <img class="google-meet__mute-inner" src="images/toolbar_no-audio.png"></img>
+            </div>
+          </div>
+          <div class="google-meet__guest-block">
+            <p class="google-meet__guest-name">guest3</p>
+            <img id="guest-3-icon" class="google-meet__guest-icon" src="images/guest-3-icon.jpg"></img>
+            <div id="mute-3-icon" class="google-meet__mute-icon">
+              <img class="google-meet__mute-inner" src="images/toolbar_no-audio.png"></img>
+            </div>
+          </div>
+          <div class="google-meet__guest-block">
+            <p class="google-meet__guest-name">guest4</p>
+            <img id="guest-4-icon" class="google-meet__guest-icon" src="images/guest-4-icon.jpg"></img>
+            <div id="mute-4-icon" class="google-meet__mute-icon">
+              <img class="google-meet__mute-inner" src="images/toolbar_no-audio.png"></img>
+            </div>
+          </div>
+          <div class="google-meet__guest-block">
+            <p class="google-meet__guest-name">guest5</p>
+            <img id="guest-5-icon" class="google-meet__guest-icon" src="images/guest-5-icon.jpg"></img>
+            <div id="mute-5-icon" class="google-meet__mute-icon">
+              <img class="google-meet__mute-inner" src="images/toolbar_no-audio.png"></img>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="google-meet__function-bar">
+        <p class="google-meet__time">  下午01:44 | Web Programming</p>
+
+        <div class="google-meet__middle">
+          <div class="google-meet__middle-button" >
+            <input type="checkbox" id="google-meet__audio" ></input>
+            <label for="google-meet__audio">
+              <div class="google-meet__red-cycle"></div>
+              <img id="no-audio" src="images/toolbar_no-audio.png" title="麥克風(Crtl+D)"></img>
+            </label>
+            <div class="google-meet__gray-cycle"></div>
+            <img id="audio" src="images/toolbar_audio.png" title="麥克風(Crtl+D)"></img>
+          </div>
+          <div class="google-meet__middle-button">
+            <input type="checkbox" id="google-meet__video" ></input>
+            <label for="google-meet__video">
+              <div class="google-meet__red-cycle"></div>
+              <img id="no-audio" src="images/toolbar_no-video.png" title="攝影機(Crtl+E)"></img>
+            </label>
+            <div class="google-meet__gray-cycle"></div>
+            <img id="video" src="images/toolbar_video.png"></img>
+          </div>
+          <div class="google-meet__middle-button">
+            <div class="google-meet__gray-cycle"></div>
+            <img id="screen-share" src="images/toolbar_screen-share.png" title="立即分享螢幕"></img>
+          </div>
+          <div class="google-meet__middle-button">
+            <div class="google-meet__gray-cycle"></div>
+            <img id="more" src="images/toolbar_more.png" title="更多選項"></img>
+          </div>
+          <div class="google-meet__middle-button">
+            <img id="quit" src="images/toolbar_quit.png" title="離開通話"></img>
+          </div>
+          
+        </div>
+        <div class="google-meet__right">
+            <img class="google-meet__right-button" id="information" src="images/toolbar_information.png" title="會議詳細資料"></img>
+            <img class="google-meet__right-button" id="gusets" src="images/toolbar_guests.png" title="顯示所有參與者"></img>
+            <img class="google-meet__right-button" id="chat" src="images/toolbar_chat.png" title="與所有參與者進行即時通訊"></img>
+            <img class="google-meet__right-button" id="activity" src="images/toolbar_activity.png" title="活動"></img>
+            <img class="google-meet__right-button" id="lock-person" src="images/toolbar_lock-person.png" title="主辦人控制選項"></img>
+
+        </div>
+      </footer>   
+    </div>
+  </body>
+</html>

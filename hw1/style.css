@@ -1,0 +1,356 @@
+
+.google-meet__root{
+  width:100%;
+  height:100%;
+  position:absolute;
+  display: flex;
+  flex-direction: column;
+  background-color:rgb(32,33,36);
+  font-family:Roboto;
+  font-weight:400;
+}
+.google-meet__guest-name{
+  font-size:12px;
+  color:white;
+}
+.google-meet__main{
+  width: 100%;
+  height: 90%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+}
+
+.google-meet__my-block{
+  width: 70%;
+  height: 100%;
+  position: relative;
+  background-color:rgb(32,33,36);
+}
+.google-meet__my-icon{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+
+}
+.google-meet__tool-bar{
+  width: 150px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  opacity: 0.3;
+  align-items: center;
+
+}
+.google-meet__tool-bar:hover{
+  opacity: 0.8;
+}
+.google-meet__tool-bar-icon{
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+  opacity: 0.7;
+  cursor: pointer;
+}
+#rectangle{
+  width: 120px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgb(80,83,85);
+  /* opacity: 0.4; */
+}
+#cycle1{
+  width: 30px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 1%;
+  border-radius: 30px 0 0 30px;
+  transform: translate(-50%,-50%);
+  background-color: rgb(80,83,85);
+  /* opacity: 0.4; */
+
+}
+#cycle2{
+  width: 30px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 99%;
+  border-radius: 0 30px 30px 0;
+  transform: translate(-50%,-50%);
+  background-color: rgb(80,83,85);
+  /* opacity: 0.4; */
+
+}
+.google-meet__my-name{
+  width: 55px;
+  height: 1em;
+  position: absolute;
+  top: 90%;
+  left: 2%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#my-pin{
+  width: 20px;
+  height: 20px;
+  position: relative;
+
+}
+#me{
+  font-size: 20px;
+  color: white;
+  position: relative;
+}
+#my-mute-icon{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 3%;
+  left: 97%;
+  border-radius: 50%;
+}
+
+.google-meet__guest-list{
+  width: 30%;
+  height: 99%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgb(32,33,36);
+}
+.google-meet__space{
+  height: 15%;
+  width: 100%;
+  position: relative;
+  /* display:none; */
+  background-color: rgb(32,33,36);
+}
+.google-meet__guest-block{
+  width: 47%;
+  height: 26%;
+  position: relative;
+  border-radius: 5%;
+  background-color: rgb(61,64,67);
+  
+}
+.google-meet__guest-block:last-child{
+  width: 65%;
+}
+.google-meet__guest-icon{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+}
+#guest-5-icon{
+  width: 70px;
+  height: 70px;
+}
+.google-meet__mute-icon{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  background-color: rgb(53,55,58);
+}
+.google-meet__mute-inner{
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  
+}
+.google-meet__guest-name{
+  /* height: 1em;
+  width: 90%; */
+  position: absolute;
+  top: 65%;
+  left: 8%;
+  font-size: 20px;
+}
+
+.google-meet__function-bar{
+  width: 100%;
+  height: 10%;
+  position: relative;
+  background-color: rgb(32,33,36);
+  display: flex;
+  flex-direction: row;
+  
+}
+.google-meet__time{
+  position: absolute;
+  left: 6px;
+  color:white;
+  font-size: 24px;
+}
+
+.google-meet__middle{
+  width: 25%;
+  height: 100%;
+  position: absolute;
+  left: 40%;
+  top:10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.title{
+  width: auto;
+  height: 1em;
+  background-color: grey;
+  position: relative;
+  color: white;
+  font-size:12px;
+  padding:0.25em 0.25em;
+  visibility: hidden;
+}
+.google-meet__middle-button{
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+
+}
+
+input[type="checkbox"]{
+  display: none;
+} 
+.google-meet__gray-cycle{
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: rgb(61,64,67);
+  z-index: 0;
+}
+.google-meet__red-cycle{
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: rgb(216,81,64);
+  z-index: 2;
+}
+.google-meet__middle-button label{
+  width: 54px;
+  height: 54px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+#no-audio{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+#audio{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+#no-video{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+#video{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+#screen-share{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+#more{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+
+.google-meet__middle-button input[type="checkbox"]:checked+label{
+  opacity: 1;
+}
+
+
+
+.google-meet__right{
+  width: 16%;
+  height: 100%;
+  position: absolute;
+  left: 82%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+} 
+.google-meet__right-button{
+  width: 25px;
+  height: 25px;
+  border-radius: 40%;
+  position: relative;
+  cursor: pointer;
+}
+
