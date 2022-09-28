@@ -1,0 +1,462 @@
+
+.google-meet__root{
+  width:100%;
+  height:100%;
+  position:absolute;
+  display: flex;
+  flex-direction: column;
+  background-color:rgb(32,33,36);
+  font-family:Roboto;
+  font-weight:400;
+}
+.google-meet__guest-name{
+  font-size:12px;
+  color:white;
+}
+.google-meet__main{
+  width: 100%;
+  height: 90%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+}
+
+.google-meet__main-block{
+  width: 70%;
+  height: 100%;
+  position: relative;
+  background-color:rgb(32,33,36);
+}
+.google-meet__main-icon{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+
+}
+.google-meet__main-tool-bar{
+  width: 150px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  opacity: 0.3;
+  align-items: center;
+
+}
+.google-meet__main-tool-bar:hover{
+  opacity: 0.8;
+}
+.google-meet__main-tool-bar-icon{
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.google-meet__main-tool-bar-rec{
+  width: 120px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgb(80,83,85);
+  /* opacity: 0.4; */
+}
+.google-meet__main-tool-bar-cyclel{
+  width: 30px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 1%;
+  border-radius: 30px 0 0 30px;
+  transform: translate(-50%,-50%);
+  background-color: rgb(80,83,85);
+  /* opacity: 0.4; */
+
+}
+.google-meet__main-tool-bar-cycler{
+  width: 30px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 99%;
+  border-radius: 0 30px 30px 0;
+  transform: translate(-50%,-50%);
+  background-color: rgb(80,83,85);
+  /* opacity: 0.4; */
+}
+
+.google-meet__main-name{
+  width: 55px;
+  height: 1em;
+  position: absolute;
+  top: 90%;
+  left: 2%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#main-pin{
+  width: 20px;
+  height: 20px;
+  position: relative;
+
+}
+#main{
+  font-size: 20px;
+  color: white;
+  position: relative;
+}
+#main-mute-icon{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 3%;
+  left: 97%;
+  border-radius: 50%;
+}
+
+/* guest block */
+
+.google-meet__guest-list{
+  width: 30%;
+  height: 99%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgb(32,33,36);
+  /* background-color: aliceblue; */
+}
+.google-meet__space{
+  height: 15%;
+  width: 100%;
+  position: relative;
+  /* display:none; */
+  background-color: rgb(32,33,36);
+}
+.google-meet__guest-block{
+  width: 200px;
+  height: 150px;
+  position: relative;
+  border-radius: 5%;
+  background-color: rgb(61,64,67);
+  
+}
+#guest-0{
+  display: none;
+}
+
+/* toolbar */
+.google-meet__guest-tool-bar{
+  width: 100px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  opacity: 0.3;
+  align-items: center;
+  z-index: 1;
+
+}
+.google-meet__guest-tool-bar:hover{
+  opacity: 0.8;
+}
+.google-meet__guest-tool-bar-icon{
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.google-meet__guest-tool-bar-icon-p{
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.google-meet__guest-tool-bar-rec{
+  width: 85px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgb(80,83,85);
+  z-index: 1;
+  /* opacity: 0.4; */
+}
+.google-meet__guest-tool-bar-cyclel{
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 1%;
+  border-radius: 40px 0 0 40px;
+  transform: translate(-50%,-50%);
+  background-color: rgb(80,83,85);
+  z-index: 1;
+  /* opacity: 0.4; */
+
+}
+.google-meet__guest-tool-bar-cycler{
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 99%;
+  border-radius: 0 40px 40px 0;
+  transform: translate(-50%,-50%);
+  background-color: rgb(80,83,85);
+  z-index: 1;
+  /* opacity: 0.4; */
+
+}
+
+/* cross */
+.google-meet__guest-x{
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color:rgba(220, 0, 0, 1);
+  text-align: center;
+  cursor: pointer;
+
+}
+.google-meet__guest-x:hover{
+  background-color: rgba(255, 0, 0, 1);
+}
+.cross{
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  cursor: pointer;
+
+}
+
+
+/* icons */
+.google-meet__guest-icon{
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+
+.google-meet__mute-icon{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  background-color: rgb(53,55,58);
+}
+.google-meet__mute-inner{
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  
+}
+.google-meet__guest-name{
+  /* height: 1em;
+  width: 90%; */
+  position: absolute;
+  top: 65%;
+  left: 8%;
+  font-size: 20px;
+}
+
+/* footer */
+
+.google-meet__function-bar{
+  width: 100%;
+  height: 10%;
+  position: relative;
+  background-color: rgb(32,33,36);
+  display: flex;
+  flex-direction: row;
+  
+}
+.google-meet__time{
+  position: absolute;
+  left: 6px;
+  color:white;
+  font-size: 24px;
+}
+
+.google-meet__middle{
+  width: 350px;
+  height: 100%;
+  position: absolute;
+  left: 40%;
+  top:10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.title{
+  width: auto;
+  height: 1em;
+  background-color: grey;
+  position: relative;
+  color: white;
+  font-size:12px;
+  padding:0.25em 0.25em;
+  visibility: hidden;
+}
+
+.google-meet__middle-button{
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+
+}
+
+input[type="checkbox"]{
+  display: none;
+} 
+.google-meet__gray-cycle{
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: rgb(61,64,67);
+  z-index: 0;
+}
+.google-meet__red-cycle{
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: rgb(216,81,64);
+  z-index: 2;
+}
+
+.google-meet__middle-button label{
+  width: 54px;
+  height: 54px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+#no-audio{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+#audio{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+#no-video{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+#video{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+#screen-share{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+#more{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+
+.google-meet__middle-button input[type="checkbox"]:checked+label{
+  opacity: 1;
+}
+
+
+
+.google-meet__right{
+  width: 250px;
+  height: 100%;
+  position: absolute;
+  left: 82%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+} 
+.google-meet__right-button{
+  width: 25px;
+  height: 25px;
+  border-radius: 40%;
+  position: relative;
+  cursor: pointer;
+}
+
