@@ -1,102 +1,138 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
+import cross from "./img/x.png";
+import Footer from'./footer';
 
+var itemid = 0;
+var total = 0;
+var left = 0;
 
-class App extends Component {
+function App() {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      total:0,
-      completed:0,
-      left:0,
-      text:[],
-      value:""
-    }
+  const [current, setCurrent] = React.useState([]);
+  const [All, setAll] = React.useState([]);
+  
+  const showAll = () => {
+    setCurrent(All.map(item =>{return item}));
   }
 
-  storeText = (event) => {this.setState(state => ({
-      total:state.total,
-      completed:state.completed,
-      left:state.left,
-      text:state.text,
-      value:event.target.value 
-    }))};
-
-  showText = (event) => {
+  const showActivate = () =>{
+    setCurrent(e => All.map(item =>{return item}));
+    setCurrent(e => e.filter(item => {
+      return item.done == 0;
+    }))
+  }  
+  const showCompleted = () =>{
+    setCurrent(e => All.map(item =>{return item}));
+    setCurrent(e => e.filter(item => {
+      return item.done == 1;
+    }))
+  }
+  
+  const showText = (event) => {
     if(event.key === "Enter"){
-    this.setState(state => ({
-      total:state.total+1,
-      completed:state.completed,
-      left:state.left+1,
-      text:state.text.concat({id:state.total.toString(), value:state.value}),
-      value:""
-    }));
-    if(this.state.total+1 !== 0){
-      var Footer = document.getElementsByClassName("todo-app__footer")[0];
-      console.log(Footer);
-      Footer.style.display = "flex";
+      let item = {
+        text:event.target.value,
+        id:itemid,
+        done:0
+
+      };
+      itemid++;
+      total++;
+      left++;
+      setCurrent(current => [...current, item]);
+      setAll(All => [...All, item]);
+      event.target.value = "";
+      console.log(total);
     }
-  };
 
   }
 
-  taskCompleted = (event) => {
-    var text = document.getElementById("t"+event.target.id[1]);
-    var box = document.getElementById(event.target.id);
-    if(box.checked){
-      text.style.textDecoration = "line-through" ;
-      text.style.opacity = "0.5";
+  const taskCompleted = (event) => {
+    let newC;
+    const target = current.find(item => {return item.id.toString() === event.target.id[1]});
+    if(target.done === 0){
+      left--;
+      newC = current.map(
+        obj => {
+          if(obj.id == target.id){
+            return{...obj, done:1};
+          }
+          return obj;
+        }
+      )
     }
     else{
-      text.style.textDecoration = "none" ;
-      text.style.opacity = "1";
+      left++;
+      newC = current.map(
+        obj => {
+          if(obj.id === target.id){
+            return{...obj, done:0};
+          }
+          return obj;
+        }
+      )
     }
+    setCurrent(newC);
+    setAll(newC);
+  }
+
+  const taskDeleted = event => {
+    console.log(event.target.id[1]);
+    let newC;
+    const target = current.find(item => {return item.id.toString() === event.target.id[1]});
+    if(target.done === 0){
+      left--;
+      
+    }
+    setCurrent(e => e.filter(item => {
+      return item.id.toString() != event.target.id[1];
+    }),
+    );
+    setAll(e => e.filter(item => {
+      return item.id.toString() != event.target.id[1];
+    }),
+    );
   }
   
-  
+  const clearCompleted = () =>{
+    setAll(e => e.filter(item => {
+      return item.done == 0;
+    }))
+    setCurrent(e => e.filter(item => {
+      return item.done == 0;
+    }))
+  }
 
 
-  render() {
-    return (
-      <div className='todo-app__root'>
-        <header className='todo-app__header'>
-          <div className='todo-app__title'>todos</div>
-        </header>
+  return (
+    <div className='todo-app__root'>
+      <header className='todo-app__header'>
+        <div className='todo-app__title'>todos</div>
+      </header>
 
-        <section className='todo-app__main'>
-          <input className='todo-app__input' value = {this.state.value} onChange = {this.storeText} onKeyDown={this.showText}></input>
-          <ul className='todo-app__list' id="todo-list">
-            {this.state.text.map((item) => (
-              <li key={item.id} className='todo-app__item'>
-                <div className='todo-app__checkbox'>
-                  <input id={"o"+item.id} type={"checkbox"} onChange={this.taskCompleted}></input>
-                  <label htmlFor={"o"+item.id}></label>
-                </div>
-                <h1 className='todo-app__item-detail' id={"t"+item.id}>{item.value}</h1>
-                <img src='/img/x.png' className='todo-app__item-x'></img>
-              </li>
+      <section className='todo-app__main'>
+        <input className='todo-app__input'  onKeyDown={showText}></input>
+        <ul className='todo-app__list' id="todo-list">
+          {current.map((e) => (
+            <li key={e.id} className='todo-app__item'>
+              <div className='todo-app__checkbox'>
+                <input id={"o"+e.id} type={"checkbox"} checked={e.done == 1 ? 1:0 } onChange={taskCompleted}></input>
+                <label htmlFor={"o"+e.id}></label>
+              </div>
+              <h1 className='todo-app__item-detail' id={"t"+e.id} style={{textDecoration: e.done == 0 ? '' : 'line-through', opacity: e.done == 0 ? '' : 0.5}}>{e.text}</h1>
+              <img src={cross} className='todo-app__item-x' id={"x"+e.id} onClick={taskDeleted}></img>
+            </li>
 
-            ))}
-          </ul>
-        </section>
-
-        <footer className='todo-app__footer' id='todo-footer'>
-          <div className='todo-app__total'>left {this.state.left}</div>
-          <ul className='todo-app__view-buttons'>
-            <button>All</button>
-            <button>Activate</button>
-            <button>Completed</button>
-          </ul>
-          <div className='todo-app__clean'>
-            <button>Clear completed</button>
-          </div>
-        </footer>
+          ))}
+        </ul>
+      </section>
+      
+      {total > 0 ? <Footer showAll={showAll} showActivate={showActivate} showCompleted={showCompleted} left={left} clearCompleted = {clearCompleted} ></Footer>:''}
       </div>
-      );
+    );
 
-    
-  }
 }
+
 
 export default App;
