@@ -18,12 +18,13 @@ export default function Dashboard({ remainFlagNum, gameOver }) {
   {/* Useful Hint: Try to understand the difference between time and sTime. */ }
 
   useEffect(() => {
-    
+    setTime(e =>{return time+1}, 1000)
   }, []);
 
   useEffect(() => {
-
-  }, []);
+    setSTime(e => {return time})
+    setTime(e => {return 0})
+  }, [gameOver]);
 
 
   return (

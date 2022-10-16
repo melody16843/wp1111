@@ -9,6 +9,7 @@
 import './css/HomePage.css';
 import React, { useState } from 'react';
 
+
 const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNum, boardSize /* -- something more... -- */ }) => {
   const [showPanel, setShowPanel] = useState(false);      // A boolean variable. If true, the controlPanel will show.
   const [error, setError] = useState(false);              // A boolean variable. If true, means that the numbers of mines and the board size are invalid to build a game.
@@ -16,28 +17,48 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNu
   {/* Advanced TODO: Implementation of Difficult Adjustment
                      Some functions may be added here! */}
 
-
+  const detectInvlid = () =>{
+    var mine = document.getElementById('mines').value;
+    var boardsize = document.getElementById('boardsize').value;
+    mineNumOnChange(mine);
+    boardSizeOnChange(boardsize);
+    if(boardsize*boardsize-mine>0){
+      setError(e => {return false})
+    }
+    else{
+      setError(e => {return true})
+    }
+  }
+  const detectPanel = () =>{
+    if(showPanel == true){
+      setShowPanel(e => {return false});
+    }
+    else{
+      setShowPanel(e =>{return true});
+    }
+  }
   return (
     <div className='HomeWrapper'>
       <p className='title'>MineSweeper</p>
-      {/* Basic TODO:  Implemen start button */}
-      <button className='btn' onClick={startGameOnClick}>start game</button>
-      {/* <div className='controlContainer'>
-        <button className='btn'>Difficulty Adjustment</button>
-        <div className='controlWrapper'>
-          <div className='error'> ERROR: Mines number and board size are invalid</div>
+      <button className='btn' onClick={error==0 ?startGameOnClick:""}>start game</button>
+      <div className='controlContainer'>
+        <button className='btn' onClick={detectPanel}>Difficulty Adjustment</button>
+        <div className='controlWrapper' style={{"display":showPanel==1 ? "":"none"}}>
+          <div className='error' style={{"display":error==1 ? "":"none"}}> ERRORS: Mines number and board size are invalid</div>
           <div className='controlPane'>
-            <p className='controlTitle'></p>
-            <input type={'range'} step="1" min='1' max='50' defaultValue={"10"}></input>
-            <p className='controlNum'></p>
+            <div className='controlCol'>
+              <p className='controlTitle'>Mines Number</p>
+              <input id='mines' type={'range'} step="1" min='1' max='100' defaultValue={"10"} onChange={detectInvlid}></input>
+              <p className='controlNum' style={{"color": error==1? "#880000":"#0f0f4b"}}>{mineNum}</p>
+            </div>
+            <div className='controlCol'>
+              <p className='controlTitle'>Board Size(n*n)</p>
+              <input id='boardsize' type={'range'} step="1" min='2' max='20' defaultValue={"10"} onChange={detectInvlid}></input>
+              <p className='controlNum' style={{"color": error==1? "#880000":"#0f0f4b"}}>{boardSize}</p>
+            </div>
           </div>
-          <div className='controlPane'></div>
         </div>
-      </div> */}
-      {/* Advanced TODO: Implementation of Difficult Adjustment
-                Useful Hint: <input type = 'range' min = '...' max = '...' defaultValue = '...'> 
-                Useful Hint: Error color: '#880000', default text color: '#0f0f4b', invisible color: 'transparent' 
-                Reminder: The defaultValue of 'mineNum' is 10, and the defaultValue of 'boardSize' is 8. */}
+      </div>
 
     </div>
   );
