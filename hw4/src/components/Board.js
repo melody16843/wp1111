@@ -36,6 +36,7 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
         setBoard(e => {return newBoard.board});
         setMineLocations(e => {return newBoard.setMineLocations});
         setNonMineCount(e => {return boardSize*boardSize - mineNum});
+        setRemainFlagNum(e => {return 0});
 
     }
 
@@ -53,8 +54,12 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
         // Deep copy of a state
         let newBoard = JSON.parse(JSON.stringify(board));
         let newFlagNum = remainFlagNum;
-        if(board[x][y].flagged || board[x][y].revealed){
+        if(board[x][y].revealed){
             return;
+        }
+        else if(board[x][y].flagged){
+            newBoard[x][y].flagged = false;
+            newFlagNum--;
         }
         else{
             newBoard[x][y].flagged = true;
@@ -69,7 +74,7 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
     };
 
     const revealCell = (x, y) => {
-        const current = revealed(board, x, y, nonMineCount, gameOver, win);
+        const current = revealed(board, x, y, nonMineCount, gameOver, win, boardSize);
         setBoard(e => {return current.board});
         setNonMineCount(e => {return current.newNonMinesCount});
         setGameOver(e => {return current.gameOver});
@@ -93,16 +98,17 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
                 Reminder: Remember to use the component <Cell> and <Dashboard>. See Cell.js and Dashboard.js for detailed information. */}
                 <div className='boardWrapper'>
                     <div className='boardContainer'>
-                        <Dashboard remainFlagNum={remainFlagNum} gameOver={gameOver}></Dashboard>
+                        <Dashboard remainFlagNum={remainFlagNum} gameOver={gameOver} win={win}></Dashboard>
                         {board.map(row => {
                             return (
                                 <div id = {"row"+row.x} style = {{display:'flex'}}>{row.map(cell => {return (<Cell id={cell.x+'-'+cell.y} rowIdx={cell.x} colIdx={cell.y} updateFlag={updateFlag} detail={board[cell.x][cell.y]} revealCell={revealCell}></Cell>)})}</div>
                             )
                         })}
                     </div>
-                    {win||gameOver == true ? <button className='btn' onClick={backToHome}>Back To HomePage</button>:""}
+                    {/* {win||gameOver == true ? <button className='btn' onClick={backToHome}>Back To HomePage</button>:""} */}
                 </div>
             </div>
+            {win||gameOver == true ? <Modal restartGame= {restartGame} backToHome={backToHome} win = {win}></Modal>:''}
         </div>
     );
 

@@ -10,6 +10,7 @@ import './MineSweeper.css';
 import Board from '../components/Board'
 import React, { useState } from 'react';
 import HomePage from '../components/HomePage'
+import Modal from '../components/Modal';
 
 const MineSweeper = () => {
     const [startGame, setStartGame] = useState(false);      // A boolean variable. If true, show `Board`, else show `HomePage`.
@@ -43,6 +44,7 @@ const MineSweeper = () => {
             
             {/* Advanced TODO: pass all parameters into `Board` and `HomePage`*/}
             {startGame==true ? <Board boardSize={boardSize} mineNum={mineNum} backToHome = {backToHomeOnClick}></Board> : <HomePage startGameOnClick = {startGameOnClick} mineNumOnChange={mineNumOnChange} boardSizeOnChange={boardSizeOnChange} mineNum={mineNum} boardSize={boardSize}></HomePage>}
+
             
         </div>
     );
