@@ -47,34 +47,50 @@ const useWordle = (solution) => {
         var count=0;
         var current=curGuess.split('');
         // console.log(current);
-        guesses[turn]=[]
+        guesses[turn]=[];
+        var green_check = solution.split('');
+
         current.map(e =>{
-            console.log(e)
-            if(e == solution[count]){
-                guesses[turn].push({char:e, color:'green'});
-            }
-            else if(solution.includes(e)){
-                guesses[turn].push({char:e, color:'yellow'});
-            }
-            else{
-                guesses[turn].push({char:e, color:'grey'});
-            }
-            console.log(guesses[turn])
-            count++;
+            guesses[turn].push({char:e, color:'grey'});
             return;
         })
+    
+        for (var i =0;i<5;i++){
+            console.log(green_check);
+            if(guesses[turn][i].char == solution[i]){
+                for(var j=0; j<green_check.length; j++){
+                    if(green_check[j] == guesses[turn][i].char){
+                        green_check.splice(j,1, '');
+                        break;
+                    }
+                }
+                guesses[turn][i].color = 'green';
+            }
+        }
+        // console.log(green_check)
+        
+        for (var i =0;i<5;i++){
+            if(guesses[turn][i].color != 'green' & green_check.includes(guesses[turn][i].char)){
+                guesses[turn][i].color = 'yellow';
+            }
+        }
+    
+   
+        setGuesses(e => {return guesses});
 
         // add the formatted guess generated into guesses.
         
-        setTurn(e => {return turn+1})
-        setCurGuess(e =>{return ''})
+        setTurn(e => {return turn+1});
+        setCurGuess(e =>{return ''});
         
         // set curGuess to default
 
 
         // TODO 5: update parameters, check each char usage and show in `Keyboard` and reset `curGuess`.
         // 5-1) check if curGuess === solution, if true, set `isCorrect` to true.
-        
+        if(curGuess === solution){
+            setIsCorrect(e => {return true});
+        }
         
         // 5-2) usedChars update
         

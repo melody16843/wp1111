@@ -12,18 +12,17 @@ import React from 'react';
 
 const CurRow = ({ curGuess, rowIdx }) => {
     let letters = curGuess.split('');
-
     return (
         <div className='Row-container'>
             {/* TODO 3: Row Implementation -- CurRow */}
             
             {/* ↓ Default row, you should modify it. ↓ */}
             <div className='Row-wrapper current'>
-                <div id={rowIdx.toString()+'0'} key={rowIdx.toString()+'0'} className={letters.length>0 ? 'Row-wordbox filled':'Row-wordbox'}>{letters.length>0 ? letters[0]:''}</div>
-                <div id={rowIdx.toString()+'1'} key={rowIdx.toString()+'1'} className={letters.length>1 ? 'Row-wordbox filled':'Row-wordbox'}>{letters.length>1 ? letters[1]:''}</div>
-                <div id={rowIdx.toString()+'2'} key={rowIdx.toString()+'2'} className={letters.length>2 ? 'Row-wordbox filled':'Row-wordbox'}>{letters.length>2 ? letters[2]:''}</div>
-                <div id={rowIdx.toString()+'3'} key={rowIdx.toString()+'3'} className={letters.length>3 ? 'Row-wordbox filled':'Row-wordbox'}>{letters.length>3 ? letters[3]:''}</div>
-                <div id={rowIdx.toString()+'4'} key={rowIdx.toString()+'4'} className={letters.length>4 ? 'Row-wordbox filled':'Row-wordbox'}>{letters.length>4 ? letters[4]:''}</div>
+                <div id={rowIdx.toString()+'-0'} key={rowIdx.toString()+'-0'} className={letters.length>0 ? 'Row-wordbox filled':'Row-wordbox'}>{letters.length>0 ? letters[0]:''}</div>
+                <div id={rowIdx.toString()+'-1'} key={rowIdx.toString()+'-1'} className={letters.length>1 ? 'Row-wordbox filled':'Row-wordbox'}>{letters.length>1 ? letters[1]:''}</div>
+                <div id={rowIdx.toString()+'-2'} key={rowIdx.toString()+'-2'} className={letters.length>2 ? 'Row-wordbox filled':'Row-wordbox'}>{letters.length>2 ? letters[2]:''}</div>
+                <div id={rowIdx.toString()+'-3'} key={rowIdx.toString()+'-3'} className={letters.length>3 ? 'Row-wordbox filled':'Row-wordbox'}>{letters.length>3 ? letters[3]:''}</div>
+                <div id={rowIdx.toString()+'-4'} key={rowIdx.toString()+'-4'} className={letters.length>4 ? 'Row-wordbox filled':'Row-wordbox'}>{letters.length>4 ? letters[4]:''}</div>
             </div>
             {/* ↑ Default row, you should modify it. ↑ */}
         </div>

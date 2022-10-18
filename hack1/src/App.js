@@ -30,7 +30,7 @@ const App = () =>  {
           <div className='App-header'>
             <header>Wordle</header>
           </div>
-          <Wordle solution={solution} />
+          <Wordle solution={'funny'} />
         </div>
       </div>
     </div>
