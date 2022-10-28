@@ -29,7 +29,7 @@ router.get('/guess', (req, res) => {
 
 router.post('/restart', (_, res) => {
     genNumber()
-    res.json({msg: 'The game has starget.'})
+    res.json({msg: 'The game has started.'})
 })
 
 export default router

@@ -61,7 +61,11 @@ function App() {
   const handleRestart = async() => {
     const response = await restart();
     try{
-      if (response === 'The game has started.') setHasStarted(true)
+      if (response === 'The game has started.') {
+        setHasStarted(true)
+        setHasWon(false)
+        setStatus('')
+      }
       else{
         setStatus('lost connect with server')
       }
