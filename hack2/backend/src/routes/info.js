@@ -18,7 +18,7 @@ exports.GetSearch = async (req, res) => {
     const typeFilter  = req.query.typeFilter
     const sortBy      = req.query.sortBy
     /****************************************/
-    const db = mongoose.connection.db;
+    // const db = mongoose.connection.db;
     // NOTE Hint: 
     // use `db.collection.find({condition}).exec(err, data) {...}`
     // When success, 
@@ -34,15 +34,21 @@ exports.GetSearch = async (req, res) => {
         }
         else{
             d = await Info.find({}).sort(sortBy)
+
             if(priceFilter){
-                d = await Info.find({}).sort(sortBy)
+                console.log(priceFilter)
+                const p = priceFilter.map(e => {
+                    return e.length})
+
                 d = d.filter(item => {
-                    console.log(item.price)
-                    if(priceFilter.indexOf(item.price.toString()) !== -1) return item
+
+                    if(p.indexOf(item.price) !== -1 || priceFilter.indexOf(item.price.toString()) !== -1) {
+
+                        return item}
                 })
-                // console.log(d)
+
             }
-            // console.log(d)
+
             if(mealFilter){
                 d = d.filter(item => {
                     // console.log(item)
@@ -56,8 +62,9 @@ exports.GetSearch = async (req, res) => {
                         return item
                     }
                 })
-                // console.log(d)
+
             }
+
             if(typeFilter){
                 d = d.filter(item => {
                     // console.log(item)
@@ -74,9 +81,9 @@ exports.GetSearch = async (req, res) => {
                 // console.log(d)
             }
 
-            // console.log(d)
+
         }
-    // console.log(d)
+ 
     res.status(200).send({ message: 'success', contents: d})
     } catch(e){
         res.status(403).send({ message: 'error', contents: 'restaurent found error' })

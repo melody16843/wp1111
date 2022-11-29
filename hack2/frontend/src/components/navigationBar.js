@@ -41,6 +41,7 @@ const NavBar = () => {
         // See README for hint
         // FIXME - Modify below
         // console.log(location)
+        console.log(priceFilter)
         navigate('/search', {
             state: {
                 priceFilter: priceFilter,
@@ -49,9 +50,18 @@ const NavBar = () => {
                 sortBy:sortMethod
             }
         });
+        // navigate('/search', {
+        //     state: {
+        //         priceFilter: [],
+        //         mealFilter: [],
+        //         typeFilter: [],
+        //         sortBy:''
+        //     }
+        // });
         setMealFilter([])
         setPriceFilter([])
         setTypeFilter([])
+        setDisplay([])
         // console.log(location)
 
     };

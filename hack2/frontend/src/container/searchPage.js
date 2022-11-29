@@ -48,6 +48,7 @@ const SearchPage = () => {
 
     useEffect(() => {
         getRestaurant()
+        console.log(state)
     }, [state.priceFilter, state.mealFilter, state.typeFilter, state.sortBy])
 
 
