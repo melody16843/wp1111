@@ -43,7 +43,7 @@ const SearchPage = () => {
                 distance:e.distance
             }
         }))
-        console.log(infos.length)
+        // console.log(infos)
     }
 
     useEffect(() => {

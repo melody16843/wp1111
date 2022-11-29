@@ -44,6 +44,17 @@ const Information = ({ info, rating }) => {
             "Sat":"Closed",
             "Sun":"Closed"
         }
+        if(Object.keys(time)[0] == 'All'){
+            time = {
+                "Mon":time.All,
+                "Tue":time.All,
+                "Wed":time.All,
+                "Thr":time.All,
+                "Fri":time.All,
+                "Sat":time.All,
+                "Sun":time.All
+            }
+        }
         // console.log(Object.keys(time))
         // console.log(Object.keys(default_time))
         return (
