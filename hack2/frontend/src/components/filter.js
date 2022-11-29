@@ -7,6 +7,7 @@
 ****************************************************************************/
 
 import React from 'react'
+import { MdFilterList } from 'react-icons/md'
 import '../css/navigationBar.css'
 
 const Filter = ({ priceFilter, setPriceFilter, mealFilter, setMealFilter, typeFilter, setTypeFilter, setDisplay }) => {
@@ -34,10 +35,23 @@ const Filter = ({ priceFilter, setPriceFilter, mealFilter, setMealFilter, typeFi
 
     const modifyFilter = (key, filter) => {
         // TODO Part II-1: change filter state on clicking the pertaining checkboxes
+ 
+        if (filter.indexOf(key) == -1){
+            filter = [...filter,key] 
+            //   console.log(filter)
+        }
+        else{
+            const index = filter.indexOf(key)
+            if (index > -1) { 
+                filter.splice(index, 1); 
+              }
+        }
+        console.log(filter)
         return filter
     }
 
     const modifyPriceFilter = (key) => {
+        console.log(key.length)
         priceFilter = modifyFilter(key, priceFilter)
         setPriceFilter(priceFilter)
         setDisplay(getTagString())

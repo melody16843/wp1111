@@ -49,7 +49,10 @@ const NavBar = () => {
                 sortBy:sortMethod
             }
         });
-        // console.log(location.state)
+        setMealFilter([])
+        setPriceFilter([])
+        setTypeFilter([])
+        // console.log(location)
 
     };
     return (

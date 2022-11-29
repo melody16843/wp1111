@@ -18,13 +18,11 @@ const instance = axios.create({
 const SearchPage = () => {
     const { state } = useLocation();
     const [restaurants, setRestaurant] = useState([])
-    console.log('haha')
+
     const getRestaurant = async () => {
         //TODO Part I-3-b: get information of restaurants from DB
-        console.log(state)
-        const {
-            data: { infos },
-        } = await instance.get('/getSearch', {
+        // console.log(state)
+        const data = await instance.get('/getSearch', {
             params: {
                 priceFilter: state.priceFilter,
                 mealFilter: state.mealFilter,
@@ -32,16 +30,20 @@ const SearchPage = () => {
                 sortBy: state.sortBy
             }
         });
+        const infos = data.data.contents
+        // console.log(infos)
         setRestaurant(() => infos.map((e) => {
             return {
                 id: e.id,
                 img: e.img,
                 name: e.name,
                 price: e.price,
-                tag: e.tag
+                tag: e.tag,
+                time:e.time,
+                distance:e.distance
             }
         }))
-        console.log(restaurants)
+        console.log(infos.length)
     }
 
     useEffect(() => {
@@ -52,6 +54,8 @@ const SearchPage = () => {
     const navigate = useNavigate();
     const ToRestaurant = (id) => {
         // TODO Part III-1: navigate the user to restaurant page with the corresponding id
+        // console.log(id)
+        navigate("/restaurant/"+id);
     }
     const getPrice = (price) => {
         let priceText = ""
@@ -66,7 +70,7 @@ const SearchPage = () => {
             {
                 restaurants.map((item) => (
                     // TODO Part I-2: search page front-end
-                    <div className='resBlock' id={item.id} key={item.id}>
+                    <div className='resBlock' id={item.id} key={item.id} onClick={() =>{ToRestaurant(item.id)}}>
                         <div className='resImgContainer'>
                             <img className='resImg' src={item.img} />
 
@@ -74,10 +78,13 @@ const SearchPage = () => {
                         <div className='resInfo'>
                             <div className='title'>
                                 <p className='name'>{item.name}</p>
-                                <p className='price'>{item.price}</p>
-                                <p className='distance'></p>
+                                <p className='price'>{getPrice(item.price)}</p>
+                                <p className='distance'>{item.distance/1000} km</p>
                             </div>
-                            <p className='discription'></p>
+                            <p className='description'>{item.tag.map((e) => {
+                                if (item.tag.indexOf(e) === item.tag.length-1) return e
+                                else return  e + ', '
+                                })}</p>
                         </div>
                     </div>
                 ))

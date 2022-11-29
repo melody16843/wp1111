@@ -18,27 +18,66 @@ exports.GetSearch = async (req, res) => {
     const typeFilter  = req.query.typeFilter
     const sortBy      = req.query.sortBy
     /****************************************/
-    // const db = mongoose.connect.db()
+    const db = mongoose.connection.db;
     // NOTE Hint: 
     // use `db.collection.find({condition}).exec(err, data) {...}`
     // When success, 
     //   do `res.status(200).send({ message: 'success', contents: ... })`
     // When fail,
     //   do `res.status(403).send({ message: 'error', contents: ... })` 
-    const condition = {
-        price:priceFilter,
-        meal:mealFilter,
-        type:typeFilter
-
-    }
-    // console.log(db.collection)
+    
     try{
-        const test = Info.find()
-        console.log(test)
-        // Info.find({})
-        // console.log(db.collection)
-    // var data = db.collection.find({condition}).exec(err, data) 
-    res.status(200).send({ message: 'success', contents: data})
+        var d
+        // console.log(priceFilter)
+        if( !priceFilter&& !mealFilter&& !typeFilter){
+            d = await Info.find({}).sort(sortBy)
+        }
+        else{
+            d = await Info.find({}).sort(sortBy)
+            if(priceFilter){
+                d = await Info.find({}).sort(sortBy)
+                d = d.filter(item => {
+                    console.log(item.price)
+                    if(priceFilter.indexOf(item.price.toString()) !== -1) return item
+                })
+                // console.log(d)
+            }
+            // console.log(d)
+            if(mealFilter){
+                d = d.filter(item => {
+                    // console.log(item)
+                    const valid = item.tag.map((tag) => {
+                        if (mealFilter.indexOf(tag) !== -1 ){
+                            // console.log(tag)
+                            return true
+                        }
+                    })
+                    if (valid.indexOf(true) !== -1){
+                        return item
+                    }
+                })
+                // console.log(d)
+            }
+            if(typeFilter){
+                d = d.filter(item => {
+                    // console.log(item)
+                    const valid = item.tag.map((tag) => {
+                        if (typeFilter.indexOf(tag) !== -1 ){
+                            // console.log(tag)
+                            return true
+                        }
+                    })
+                    if (valid.indexOf(true) !== -1){
+                        return item
+                    }
+                })
+                // console.log(d)
+            }
+
+            // console.log(d)
+        }
+    // console.log(d)
+    res.status(200).send({ message: 'success', contents: d})
     } catch(e){
         res.status(403).send({ message: 'error', contents: 'restaurent found error' })
     }
@@ -68,6 +107,15 @@ exports.GetInfo = async (req, res) => {
     //    message: 'error'
     //    contents: []
     // }
+
+    try{
+        const d = await Info.find({id:id})
+        // console.log(priceFilter)
+    // console.log(d)
+    res.status(200).send({ message: 'success', contents: d})
+    } catch(e){
+        res.status(403).send({ message: 'error', contents: [] })
+    }
 
     // TODO Part III-2: find the information to the restaurant with the id that the user requests
 }

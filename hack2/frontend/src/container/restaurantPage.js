@@ -24,9 +24,17 @@ const RestaurantPage = () => {
     const [loading, setLoading] = useState(true)
     const getInfo = async () => {
         // TODO Part III-2: get a restaurant's info
+        const data = await instance.get('/getInfo', {
+            params: {
+                id:id
+            }
+        })
+
+        setInfo(data.data.contents[0]);
     }
     const getComments = async () => {
         // TODO Part III-3: get a restaurant's comments 
+        // const data = await instance.get('/getCommentsByRestaurantId')
     }
     useEffect(() => {
         if (Object.keys(info).length === 0) {

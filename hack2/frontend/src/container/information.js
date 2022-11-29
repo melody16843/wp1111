@@ -11,11 +11,14 @@ import Stars from '../components/stars';
 import '../css/restaurantPage.css'
 
 const Information = ({ info, rating }) => {
-
+    // console.log(info)
     const getTag = (tags) => {
         return (
             <>
                 {/* TODO Part III-2-a render tags */}
+                {tags.map((e) => {
+                    return(<div className='tag' key={e}>{e}</div>)
+                })}
             </>
         )
     }
@@ -26,15 +29,46 @@ const Information = ({ info, rating }) => {
         return (
             <>
                 {/* TODO Part III-2-a render price tags; hint: convert price number to dollar signs first */}
+                <div className='tag' key={priceText}>{priceText}</div>
             </>
         )
     }
 
     const getBusiness = (time) => {
-        
+        const default_time = {
+            "Mon":"Closed",
+            "Tue":"Closed",
+            "Wed":"Closed",
+            "Thr":"Closed",
+            "Fri":"Closed",
+            "Sat":"Closed",
+            "Sun":"Closed"
+        }
+        // console.log(Object.keys(time))
+        // console.log(Object.keys(default_time))
         return (
             <div className='businessTime'>
                 {/* TODO Part III-2-c: render business time for each day*/}
+                {Object.keys(default_time).map((e) => {
+                    // console.log(time[e])
+                    if(time[e]){
+                        // console.log(e)
+                        return (
+                            <div className='singleDay'>
+                                <div className='day'>{e}</div>
+                                <div className='time'>{time[e]}</div>
+                            </div>
+                        )
+                    }
+                    else{
+                        return (
+                            <div className='singleDay'>
+                                <div className='day'>{e}</div>
+                                <div className='time'>{default_time[e]}</div>
+                            </div>
+                        )
+                    }
+                })}
             </div>
         )
     }
