@@ -152,6 +152,12 @@ export default {
                     }
 
                 }
+                case 'validate': {
+                    const {name} = payload
+                    const valid = UserModel.findOne({name:name})
+                    if (!valid) return false
+                    else return true
+                }
             }
         }
     ),

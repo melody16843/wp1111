@@ -16,6 +16,6 @@ useUnifiedTopology: true,
 export default {
 connect: () => { 
     const db = mongoose.connection
-    // console.log(process.env.MONGO_URL)
+    console.log(process.env.MONGO_URL)
 }
 }

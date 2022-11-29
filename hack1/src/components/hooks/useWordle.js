@@ -57,11 +57,12 @@ const useWordle = (solution) => {
     
         for (var i =0;i<5;i++){
             console.log(green_check);
+            var aa =false;
             if(guesses[turn][i].char == solution[i]){
                 for(var j=0; j<green_check.length; j++){
-                    if(green_check[j] == guesses[turn][i].char){
+                    if(green_check[j] == guesses[turn][i].char & aa==false){
                         green_check.splice(j,1, '');
-                        break;
+                        aa =true;
                     }
                 }
                 guesses[turn][i].color = 'green';
