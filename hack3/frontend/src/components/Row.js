@@ -28,7 +28,7 @@ function Row({
   };
 
   const handleDelete = () => {
-    console.log(item.id)
+    // console.log(item.id)
     deleteItem({
       variables: {
         id: item.id,

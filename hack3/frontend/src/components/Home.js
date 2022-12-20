@@ -65,18 +65,25 @@ function Home() {
   // TODO 6.5 Logic of subscription
   useEffect(
     () => {
-      console.log('test')
-      // subscribeToMore({
-      //   document: ITEM_DELETED_SUBSCRIPTION,
-      //   updateQuery: (prev, { subscriptionData }) => {
-      //     if (!subscriptionData.data) return prev;
-      //     console.log(subscriptionData.data)
-      //     const id = subscriptionData.data.id;
-      //     return {
-      //       items: prev.items.filter((item) => {if(item.id === id) {return item}}),
-      //     };
-      //   },
-      // });
+      try{
+      // console.log('test')
+      subscribeToMore({
+        document: ITEM_DELETED_SUBSCRIPTION,
+        updateQuery: (prev, { subscriptionData }) => {
+          console.log('test2')
+          if (!subscriptionData.data) return prev;
+          console.log(subscriptionData.data)
+          console.log(subscriptionData.data.itemDeleted)
+          const id = subscriptionData.data.itemDeleted
+          return {
+            items: prev.items.filter((item) => {if(item.id !== id) {return item}}),
+          };
+          // return {}
+        },
+      });}
+      catch(e){
+        console.log(e)
+      }
     },
     [subscribeToMore],
   );

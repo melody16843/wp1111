@@ -39,9 +39,8 @@ const Mutation = {
     const item = await itemModel.findOneAndDelete(
       { id: id }
     );
-    pubSub.publish("ITEM_DELETED", {
-      id:id
-    })
+    console.log(item.id)
+    pubSub.publish("ITEM_DELETED", {itemDeleted:item.id})
     return id
   }
   // TODO 6.3 Publish itemDeleted
