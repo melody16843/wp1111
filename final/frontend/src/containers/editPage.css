@@ -1,0 +1,21 @@
+.blog_editor {
+    width: 780px;
+    margin-left: 160px;
+    padding: 4px 35px;
+    font-size: 17px;
+    /* border: 1px solid #dcdee2; */
+    border-radius: 4px;
+    color: #515a6e;
+    background-color: #fff;
+    background-image: none;
+    z-index:  -1;
+}
+  
+.blog_editor:hover {
+    border: 1px solid #57a3f3;
+}
+  
+._input_field {
+    margin: 20px 0 20px 160px;
+    width: 787px;
+}
