@@ -25,7 +25,7 @@ import ImageTool from '@editorjs/image';
 // ></ReactEditorJS> 
 
 export const EDITOR_JS_TOOLS = {
-  // embed: Embed,
+  embed: Embed,
   table: Table,
   marker: Marker,
   list: List,
