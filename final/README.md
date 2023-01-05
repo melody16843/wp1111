@@ -62,14 +62,14 @@ A lesson learned in this project is how incredible the world of the Internet is.
 1. 
 ```
 cd frontend/
-yarn
+yarn install
 yarn start
 ```
 
 2. 
 ```
 cd backend/
-yarn
+yarn install
 yarn server
 ```
 
