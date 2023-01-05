@@ -1,4 +1,7 @@
 
+
+
+## FB 社團公告內容
 - 專題題目名稱
 Group 59 
 Have a nice trip
@@ -9,6 +12,7 @@ B08901214 蔡昕璇
 B09504006 白鈺綺
 
 - Demo 影片連結  
+https://drive.google.com/file/d/1SwvZ4ADgb5YQkbRWMID15MiMZPxJm36v/view?usp=share_link
 
 - 網路服務說明
 我們的服務have a nice trip是一個兼具記帳功能的旅遊網誌，使用者可以在此搜尋並閱讀其他人的旅遊心得文章，發掘新的出遊地點，登陸後還可以收藏喜歡的文章，非常適合想要探索各種旅遊秘境、私房景點的人，或是好不容易有空出去玩耍但一時間不知道該何去何從的人，又或是想要參考別人的出遊經驗，來規劃旅遊行程的人，也都很適合。除了搜尋與瀏覽功能外外，登陸後即可建立自己公開的旅遊文章(可限定共編對象)，並且每篇文章皆具有私人的記帳功能，三五好友一起出門，最後分帳往往讓人困擾，使用have a nice trip的記帳功能就能針對此次出遊，清楚記錄每筆開支，也能夠增添一起旅遊的回憶。
@@ -43,18 +47,18 @@ B09504006 白鈺綺
 
 
 
-
-
-
-
-
 - 專題製作心得
 蔡心櫻：
 本次專題讓我體會到網頁state更新以及各種async順序的重要性，本次專題的許多bug多半來自於此問題，對於網頁設計以及網路服務的各種貢獻者至上12萬分敬意。
 蔡昕璇：
-A lesson learned in this project is how incredible the world of the Internet is. Although coding is not where I shine, this course has a great discrepancy from many other courses in EE. The point is to integrate the amazing extensions/works of your teammate/others, conjure up a recipe and create your own projects. It is important to ask people for help, as well as the universe of github issue and documents online!
+A lesson learned in this project is how incredible the world of the Internet is. Although coding is not where I shine, this course has a great discrepancy from many other courses in EE (algorithm, data structure, etc.). The point is to integrate the amazing extensions/works of your teammate/others, conjure up a recipe and create your own projects. It is important to ask people for help, as well as the universe of github issue and documents online!
 白鈺綺：
 製作完本次專案的當下回過頭來看，很難相信自己從原本對網頁服務的技術完全沒概念，到最後能夠利用這堂課所學跟兩名carry的隊友一起成功架出一個網誌，雖然過程中真的很累學習曲線陡峭，更因此深刻感受到自己成長很多，不論是對於網頁技術的實作基礎知識或是跟隊友一起協作開發軟體專案的能力都有很大提升。
+
+-------
+## Deployed 連結 (點進去即可使用)
+https://haveanicetrip-2023.up.railway.app/
+(若有連結失效的狀況麻煩來信通知，有可能是railway的Deployed每月額度用光)
 
 
 ## 如何在 localhost 安裝與測試之詳細步驟
@@ -73,7 +77,10 @@ yarn install
 yarn server
 ```
 
-(資料庫使用我們的自己的mangodb，不須新增.env檔)
+
+#### 資料庫使用我們的自己的mangodb，不須新增.env檔
+由於之後的搜尋功能測試會使用到我們資料庫的側資，所以直接在.env.defaults提供我們的mangodb資料庫認證連結，此連結有時效性，等期末專題評分完畢後就會刪除，故無資安問題，也請老師與助教協助，勿將mangodb資料庫認證連結外流，感謝
+
 
 ## 使用的packages
 
@@ -185,13 +192,39 @@ yarn server
 > 文章有6個輸入框
 > * Title (input text, 會顯示在search page result card)
 > * Acticle (block input style editor, like notion)
-> 圖片嵌入方式
-> <詳細的使用示範請見demo 影片>
+> 圖片嵌入測試
+> ![](https://i.imgur.com/p5aaCvB.jpg)
+> 複製以下公開圖片網址(需要是公開的url且結尾為jpg、png格式)：https://media.cntraveler.com/photos/5d8cf7d5db6acf000833e6cc/master/pass/Eiffel-Tower_GettyImages-1060266626.jpg
+> 到editor編輯區上
 > 
+> 編輯區:
+> ![](https://i.imgur.com/2vMqKa0.png)
+> 測試結果如下:
+> ![](https://i.imgur.com/2XXJJrL.png)
+> 影片嵌入功能測試
+> 一樣複製以下網址
+> https://www.youtube.com/watch?v=-ltO_iTeiVM
+> 到editor編輯區上
+> 結果：
+> ![](https://i.imgur.com/FG8F4V2.png)
+
+
+
+> 
+> <詳細的使用示範可見demo 影片>
+:::info
+![](https://i.imgur.com/HMXZI9m.gif)
+headings設定
+![](https://i.imgur.com/mZ0ktnM.gif)
+表格(table)設定
+![](https://i.imgur.com/1083vvg.gif)
+以連結插入圖片及影片
+:::
+
 > * post excerpt (文章摘要或PS註記)
 > * Tag (option selsctor: 地區、價格、天數, for search page filter)
 > * Meta Description (this article description, 會顯示在search page result card)
-> * Owner (共同編輯該文章的人員名單、協作者)
+> * Owner (共同編輯該文章的人員名單、協作者(名稱請輸入他的登錄帳號@前的部分，使用示範如10.，只能在初次SAVE文章時設定，之後編輯該文章都無法修改，協作者必須是已經登錄過此服務的人)
 > 
 > #### 輸入完文章後，click SAVE button:
 > * it will nevigate to that article page, and in left menu "articles" block will auto save that new article title. 
@@ -201,16 +234,8 @@ yarn server
 > after edit the article and click SAVE button, it will show below message：
 > ![](https://i.imgur.com/hIKcbDN.png)
 
-7. delete old article
-> 按下save旁邊的delete鍵，會將article刪除，且側欄的文章列表也會更新，但是協作者的部份需要協作者重新登錄之後才看得到更新（會有error訊息跳出提醒）
-> before Delete
-> ![](https://i.imgur.com/NHbksHb.png)
-> after click Delete
-> ![](https://i.imgur.com/IVAx2KH.png)
-
-
 > 
-8. see account(帳務) of article
+7. see account(帳務) of article
 > 按下SAVE建立新文章後，click上方的ACCOUNT Button進入該文章的記帳頁面
 > ![](https://i.imgur.com/36FNmXf.png)
 > 點選上方的Click to enter expense可以新增花費
@@ -218,38 +243,53 @@ yarn server
 > 點選右邊的trash can可以刪除該花費
 > 再點選上方ARTICLE可以切換回文章編輯頁面
 
+8. delete old article
+> 按下save旁邊的delete鍵，會將article刪除，且側欄的文章列表也會更新，但是協作者的部份需要協作者重新登錄之後才看得到更新（會有error訊息跳出提醒）
+> before Delete
+> ![](https://i.imgur.com/NHbksHb.png)
+> after click Delete
+> ![](https://i.imgur.com/IVAx2KH.png)
+
 9. logout
 > click left menu "Logout", it will logout
 > ![](https://i.imgur.com/IhvoXWC.png)
 
 
+ 
 
-PS: 
-所有文章一旦SAVE後皆可以顯示在Search的結果中，文章的瀏覽權限屬於pubic，文章的修改儲存功能權限只for作者本人或指定的對象，屬於private
+:::info
+P.S.
+- 所有文章一旦SAVE後皆可以顯示在Search的結果中，文章的瀏覽權限屬於pubic，文章的修改儲存功能權限只for作者本人或指定的對象，屬於private
+- account一律都是private的功能，非owner無法瀏覽與編輯
+- 左邊側欄可以伸縮，網站icon會隨之改變排版
 
-account一律都是private的功能，非owner無法瀏覽與編輯
+![](https://i.imgur.com/uZJceFE.gif)
 
+:::
 
-
+10. 共同編輯
+如下圖在owner中填入想要協作者的名字（email@前的部份），若有很多個請以空格隔開
+![](https://i.imgur.com/8nIF1Ps.png)
+文章創建以後，所有的協作者都可以有編輯權限，但是請注意，若是協作者現在在登錄狀態，他的navbar不會馬上更新，會在下一次需要更新navbar時才會更新，例如創建文章、更改喜歡、重新login等等
+剛剛輸入的共編者(協作者)2002paipai帳號會收到共同編輯文章，連結收錄在左側menu的"articles"，如下圖
+![](https://i.imgur.com/jDVGpTQ.png)
 
 
 
 
 ## 每位組員之負責項目 (請詳述)
 
-
-
-蔡心櫻
+==蔡心櫻==
 search、filter、navbar功能實做
-蔡昕璇
-account、login功能實做
-白鈺綺
+==蔡昕璇==
+account、login功能實做、網站icon設計
+==白鈺綺==
 page的edit、save、delete實做
 
 
 
 ## (Optional) 對於此課程的建議
-我覺的在教學的部份，與其使用作業來做示範，我覺的可能用別的題目來示範，但是示範完全，作業出不一樣的題目，這樣可能對於初學者更友善一點
-
+- 我覺的在教學的部份，與其使用作業來做示範，我覺的可能用別的題目來示範，但是示範完全，作業出不一樣的題目，這樣可能對於初學者更友善一點
+- 這門課建議改成5學分，並且增加 TA recitation
 
 
