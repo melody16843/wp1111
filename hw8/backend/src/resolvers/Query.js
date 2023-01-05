@@ -4,6 +4,7 @@ const Query = {
     const { pubsub, ChatBoxModel } = context
     const n = [name1, name2].sort()
     let box = await ChatBoxModel.findOne({ name1:n[0], name2:n[1]});
+    console.log(box.messages.length)
     if (!box)
       throw console.error('not found');
     return box;

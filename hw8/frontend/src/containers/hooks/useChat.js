@@ -1,6 +1,6 @@
 import { useState, createContext, useContext, useEffect, memo } from "react";
 import { message } from 'antd'
-import { useLazyQuery, useMutation } from "@apollo/client";
+import { useLazyQuery, useMutation, useQuery } from "@apollo/client";
 import { CHATBOX_QUERY, CREATE_CHATBOX_MUTATION, CREATE_MESSAGE_MUTATION, MESSAGE_SUBSCRIPTION } from '../../graphql/index'
 
 const ChatContext = createContext({
@@ -56,69 +56,57 @@ const ChatProvider = (props) => {
     const [sendMessage] = useMutation(CREATE_MESSAGE_MUTATION)
 
 
-    const [getmessage, { data, subscribeToMore }]
+    const [getmessage, { data, loading, subscribeToMore}]
         = useLazyQuery(CHATBOX_QUERY);
-
-        // useEffect(() => {
-        //     // console.log(data)
-        //     setMessages(data)
-        // },[data])
-    
-        const changeBox = async(friend) => {
-            setFriend(friend)
-            // console.log('getting data')
-            // console.log(me, friend)
-            await getmessage({variables:{
+    // const {data, subscribeToMore} = useQuery(CHATBOX_QUERY, {variables:{
+    //     name1:me,
+    //     name2:friend
+    // }})
+    // 
+        useEffect(() =>{
+            if (friend !=''){
+            console.log(friend)
+            getmessage({variables:{
                 name1:me,
                 name2:friend
             }})
-            // console.log(subscribeToMore)
-            
-            
-            
-            
         }
-        // console.log(loading)
+        }, [friend])
+        // console.log(data)
         // console.log(error)
         // console.log(subscribeToMore)
 
     useEffect(() => {
         try {
-            console.log(me, friend)
+            console.log('change')
+            
             subscribeToMore({
                 document: MESSAGE_SUBSCRIPTION,
                 variables: { name: me, to: friend },
                 updateQuery: (prev, { subscriptionData }) => {
+                    console.log('haha',prev)
                     if (!subscriptionData.data) return prev;
                     const newMessage = subscriptionData.data.message;
                     return {
                         chatbox: {
-                            name1:me,
-                            name2:friend,
+
                             messages: [...prev.chatbox.messages, newMessage],
                         },
                     };
                 },
             });
-        } catch (e) {console.log(e) }
+        } catch (e) {}
     }, [subscribeToMore, friend]);
             
 
     return(
         < ChatContext.Provider
         value={{
-            startChat, sendMessage, changeBox, data, displayStatus, status, me, setMe, setSignedIn,signedIn
+            startChat, sendMessage, setFriend, data, displayStatus, status, me, setMe, setSignedIn,signedIn
         }}{...props}/>
     )
 
-    // return (
-    //     < ChatContext.Provider
-    // value = {{
-    //     status, me, signedIn, messages, setMe, setSignedIn,
-    //         sendMessage, clearMessages, displayStatus, startChat, userInit
-    // }
-    // }{...props}/>
-    // )
+
 }
 
 const useChat = () => useContext(ChatContext);

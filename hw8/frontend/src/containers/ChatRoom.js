@@ -21,7 +21,7 @@ const FootRef = styled.div`
 `
 
 const ChatRoom = () => {
-  const { startChat, sendMessage, changeBox, data, displayStatus, status, me } = useChat()
+  const { startChat, sendMessage, setFriend, data, displayStatus, status, me } = useChat()
   // const [username, setUsername] = useState('')
   const [msg, setMsg] = useState('')
   const [msgSent, setMsgSent] = useState(false);
@@ -59,8 +59,10 @@ const ChatRoom = () => {
   useEffect(() => {
     if (data !== undefined) {
       const friend = data.chatbox.name1 == me ? data.chatbox.name2 : data.chatbox.name1
+      console.log(friend)
       // console.log(chatBoxes.some
       //   (({ key }) => key === friend))
+      // console.log(data.chatbox.messages)
       if (chatBoxes.some
         (({ key }) => key === friend)) {
 
@@ -84,8 +86,6 @@ const ChatRoom = () => {
       else {
 
         const messages = data.chatbox.messages
-        // console.log(chatBoxes)
-        // console.log(messages)
         setChatBoxes([...chatBoxes,
         {
           label: friend, children: renderChat(messages),
@@ -144,7 +144,6 @@ const ChatRoom = () => {
       ({ behavior: 'smooth', block: 'start' });
   };
   useEffect(() => {
-    console.log('scroll')
     scrollToBottom();
     setMsgSent(false);
   }, [msgSent])
@@ -159,16 +158,16 @@ const ChatRoom = () => {
           tabBarStyle={{ height: '36px' }}
           type='editable-card'
           activeKey={activeKey}
-          onChange={async(key) => {
+          onChange={(key) => {
             setActiveKey(key);
-            await changeBox(key);
+            setFriend(key);
           }}
           onEdit={(targetKey, action) => {
             if (action === 'add') setModalOpen(true);
             else if (action === 'remove') {
               const temp = removeChatBox(targetKey, activeKey)
               setActiveKey(temp);
-              changeBox(temp);
+              setFriend(temp);
             }
           }}
           items={chatBoxes}
@@ -177,7 +176,7 @@ const ChatRoom = () => {
           open={modalOpen}
           onCreate={async ({ name }) => {
             await startChat({ variables: { name1: me, name2: name } });
-            await changeBox(name)
+            setFriend(name)
             setActiveKey(name);
 
             setModalOpen(false);
@@ -192,7 +191,7 @@ const ChatRoom = () => {
         onChange={(e) => setMsg(e.target.value)}
         enterButton="Send"
         placeholder="Type a message here..."
-        onSearch={(msg) => {
+        onSearch={async(msg) => {
           if (!msg) {
             displayStatus({
               type: 'error',
@@ -200,7 +199,7 @@ const ChatRoom = () => {
             })
             return
           }
-          sendMessage({ variables:{name: me, body: msg, to:activeKey} })
+          await sendMessage({ variables:{name: me, body: msg, to:activeKey} })
           setMsg('')
         }}
       ></Input.Search>
