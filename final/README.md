@@ -47,12 +47,14 @@ https://drive.google.com/file/d/1SwvZ4ADgb5YQkbRWMID15MiMZPxJm36v/view?usp=share
 
 
 
-- 專題製作心得
-蔡心櫻：
+#### 專題製作心得
+- 蔡心櫻：
 本次專題讓我體會到網頁state更新以及各種async順序的重要性，本次專題的許多bug多半來自於此問題，對於網頁設計以及網路服務的各種貢獻者至上12萬分敬意。
-蔡昕璇：
+
+- 蔡昕璇：
 A lesson learned in this project is how incredible the world of the Internet is. Although coding is not where I shine, this course has a great discrepancy from many other courses in EE (algorithm, data structure, etc.). The point is to integrate the amazing extensions/works of your teammate/others, conjure up a recipe and create your own projects. It is important to ask people for help, as well as the universe of github issue and documents online!
-白鈺綺：
+
+- 白鈺綺：
 製作完本次專案的當下回過頭來看，很難相信自己從原本對網頁服務的技術完全沒概念，到最後能夠利用這堂課所學跟兩名carry的隊友一起成功架出一個網誌，雖然過程中真的很累學習曲線陡峭，更因此深刻感受到自己成長很多，不論是對於網頁技術的實作基礎知識或是跟隊友一起協作開發軟體專案的能力都有很大提升。
 
 -------
@@ -86,63 +88,60 @@ yarn server
 
 如上"使用與參考之(第三方)框架/模組/原始碼"所述
 細節可參考下方
-* backend dependencies
-  "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-object-rest-spread": "^7.20.2",
-    "@babel/plugin-transform-arrow-functions": "^7.18.6",
-    "cors": "^2.8.5",
-    "dotenv-defaults": "^5.0.2",
-    "express": "^4.18.2",
-    "mongoose": "^6.8.2",
-    "nodemon": "^2.0.20",
-    "stytch": "^5.17.0"
-  },
-* frontend dependecies
-  "dependencies": {
-    "@ant-design/icons": "^4.8.0",
-    "@editorjs/checklist": "^1.4.0",
-    "@editorjs/code": "^2.8.0",
-    "@editorjs/delimiter": "^1.3.0",
-    "@editorjs/editorjs": "^2.26.4",
-    "@editorjs/embed": "^2.5.3",
-    "@editorjs/header": "^2.7.0",
-    "@editorjs/image": "^2.8.1",
-    "@editorjs/inline-code": "^1.4.0",
-    "@editorjs/link": "^2.5.0",
-    "@editorjs/list": "^1.8.0",
-    "@editorjs/marker": "^1.3.0",
-    "@editorjs/paragraph": "^2.9.0",
-    "@editorjs/quote": "^2.5.0",
-    "@editorjs/raw": "^2.4.0",
-    "@editorjs/simple-image": "^1.5.1",
-    "@editorjs/table": "^2.2.0",
-    "@editorjs/warning": "^1.3.0",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.2",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "antd": "^5.0.5",
-    "antd-input-tag": "^1.0.14",
-    "axios": "^1.2.2",
-    "dayjs": "^1.11.7",
-    "react": "^18.2.0",
-    "react-date-object": "^2.1.5",
-    "react-dom": "^18.2.0",
-    "react-editor-js": "^2.1.0",
-    "react-router-dom": "^6.4.5",
-    "react-scripts": "5.0.1",
-    "reactstrap": "^9.1.5",
-    "styled-components": "^5.3.6",
-    "universal-cookie": "^4.0.4",
-    "web-vitals": "^2.1.4"
-  },
-
-
-
+    * backend dependencies
+    "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.18.6",
+        "@babel/plugin-proposal-object-rest-spread": "^7.20.2",
+        "@babel/plugin-transform-arrow-functions": "^7.18.6",
+        "cors": "^2.8.5",
+        "dotenv-defaults": "^5.0.2",
+        "express": "^4.18.2",
+        "mongoose": "^6.8.2",
+        "nodemon": "^2.0.20",
+        "stytch": "^5.17.0"
+    },
+    * frontend dependecies
+        "dependencies": {
+        "@ant-design/icons": "^4.8.0",
+        "@editorjs/checklist": "^1.4.0",
+        "@editorjs/code": "^2.8.0",
+        "@editorjs/delimiter": "^1.3.0",
+        "@editorjs/editorjs": "^2.26.4",
+        "@editorjs/embed": "^2.5.3",
+        "@editorjs/header": "^2.7.0",
+        "@editorjs/image": "^2.8.1",
+        "@editorjs/inline-code": "^1.4.0",
+        "@editorjs/link": "^2.5.0",
+        "@editorjs/list": "^1.8.0",
+        "@editorjs/marker": "^1.3.0",
+        "@editorjs/paragraph": "^2.9.0",
+        "@editorjs/quote": "^2.5.0",
+        "@editorjs/raw": "^2.4.0",
+        "@editorjs/simple-image": "^1.5.1",
+        "@editorjs/table": "^2.2.0",
+        "@editorjs/warning": "^1.3.0",
+        "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
+        "@mui/icons-material": "^5.11.0",
+        "@mui/material": "^5.11.2",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "antd": "^5.0.5",
+        "antd-input-tag": "^1.0.14",
+        "axios": "^1.2.2",
+        "dayjs": "^1.11.7",
+        "react": "^18.2.0",
+        "react-date-object": "^2.1.5",
+        "react-dom": "^18.2.0",
+        "react-editor-js": "^2.1.0",
+        "react-router-dom": "^6.4.5",
+        "react-scripts": "5.0.1",
+        "reactstrap": "^9.1.5",
+        "styled-components": "^5.3.6",
+        "universal-cookie": "^4.0.4",
+        "web-vitals": "^2.1.4"
+     },
 
 
 
@@ -257,7 +256,7 @@ headings設定
 
  
 
-:::info
+
 P.S.
 - 所有文章一旦SAVE後皆可以顯示在Search的結果中，文章的瀏覽權限屬於pubic，文章的修改儲存功能權限只for作者本人或指定的對象，屬於private
 - account一律都是private的功能，非owner無法瀏覽與編輯
@@ -265,7 +264,7 @@ P.S.
 
 ![](https://i.imgur.com/uZJceFE.gif)
 
-:::
+
 
 10. 共同編輯
 如下圖在owner中填入想要協作者的名字（email@前的部份），若有很多個請以空格隔開
