@@ -1,4 +1,4 @@
-
+Please see https://hackmd.io/s/B1TeWQQ5s for better reading experience!
 
 
 ## FB 社團公告內容
